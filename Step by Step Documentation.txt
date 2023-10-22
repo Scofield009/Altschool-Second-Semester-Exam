@@ -1,0 +1,36 @@
+EXPLANATION OF THE REPOSITORY
+* In this task we were asked to create a laravel file running on a LAMP stack which is the
+LINUX, ANSIBLE MYSQL PHP.
+
+* Also were also asked to create a master and slave Ubuntu-based servers using vagrant in which the
+master server can automate the LAMP files created.
+
+* It basically contains all important files
+
+SECTIONS WITHIN THE FILES
+ANSIBLE: Within the ansible directory there is a sub-directory called (Files), inside the file directory there's a file called laravel-slave.sh. 
+This laravel-slave.sh is where the configuration to install the LAMP STACK, update and upgrading servers, installing of composer and also configuration of apache2. Inside this file is where i cloned laravel application and dependencies, creating username and password for the configurationof mysql. It also deploys the whole laravel application on the slave_1 server.
+
+ANSIBLE.CFG: This file basically holds the configuration of ansible.
+
+INVENTORY: Holds the IP address to the slave_1 server which is the target machine.
+
+SITE.YAML: This file copies the cron-job, it copies the laravelfile into the slave_1 machine, it changes the command of the file and finally it runs the laravel script.
+
+MASTER-SLAVE.SH: The master-slave.sh file configures and spins the master and slave server using ubuntu/focal64
+
+LARAVEL.SH: This file helps with deployments on the master server.
+
+HOW TO DEPLOY THE REPOSITORY
+There are three steps to deploying this files, 
+1) .env
+2) mysql 
+3) ansible config file.
+
+*.env: within the .env file there are certain things that need to be changed which are the USERNAME, PASSWORD & DATABASE. Most of the time the username and database name are usually the same while the password can be changed.
+
+*mysql: To run mysql i just needed to use ./laravel.sh ibikunle ibikunle009 which signifies my username, database and password in other to by pass prompt.
+
+*ansible config file:  The server name is changed to my IP address which allows seamless access into the slave_1 server, and the IP must match the laravelip addresson the machine
+
+
